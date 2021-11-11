@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
@@ -52,7 +51,7 @@ class Rsvp_AEROCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_AEROCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_AEROCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_AEROCLUB_Serializer
@@ -65,7 +64,7 @@ class Rsvp_AICLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_AICLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_AICLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_AICLUB_Serializer
@@ -77,7 +76,7 @@ class Rsvp_ALCHERCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_ALCHERCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_ALCHERCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_ALCHERCLUB_Serializer
@@ -89,7 +88,7 @@ class Rsvp_ASTROCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_ASTROCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_ASTROCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_ASTROCLUB_Serializer
@@ -101,7 +100,7 @@ class Rsvp_BT_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_BT.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_BT_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_BT_Serializer
@@ -113,7 +112,7 @@ class Rsvp_CACLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CACLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CACLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CACLUB_Serializer
@@ -125,7 +124,7 @@ class Rsvp_CCDCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CCDCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CCDCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CCDCLUB_Serializer
@@ -137,7 +136,7 @@ class Rsvp_CE_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CE.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CE_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CE_Serializer
@@ -149,7 +148,7 @@ class Rsvp_CH_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CH.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CH_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CH_Serializer
@@ -161,7 +160,7 @@ class Rsvp_CL_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CL.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CL_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CL_Serializer
@@ -173,7 +172,7 @@ class Rsvp_CODINGCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CODINGCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CODINGCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CODINGCLUB_Serializer
@@ -185,7 +184,7 @@ class Rsvp_CSE_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_CSE.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_CSE_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_CSE_Serializer
@@ -197,7 +196,7 @@ class Rsvp_DES_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_DES.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_DES_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_DES_Serializer
@@ -209,7 +208,7 @@ class Rsvp_ECE_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_ECE.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_ECE_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_ECE_Serializer
@@ -221,7 +220,7 @@ class Rsvp_EDCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_EDCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_EDCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_EDCLUB_Serializer
@@ -233,7 +232,7 @@ class Rsvp_EECLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_EECLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_EECLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_EECLUB_Serializer
@@ -245,7 +244,7 @@ class Rsvp_EEE_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_EEE.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_EEE_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_EEE_Serializer
@@ -257,7 +256,7 @@ class Rsvp_FNCCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_FNCCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_FNCCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_FNCCLUB_Serializer
@@ -269,7 +268,7 @@ class Rsvp_MA_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_MA.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_MA_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_MA_Serializer
@@ -281,7 +280,7 @@ class Rsvp_ME_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_ME.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_ME_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_ME_Serializer
@@ -293,7 +292,7 @@ class Rsvp_OTHERCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_OTHERCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_OTHERCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_OTHERCLUB_Serializer
@@ -305,7 +304,7 @@ class Rsvp_PH_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_PH.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_PH_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_PH_Serializer
@@ -317,7 +316,7 @@ class Rsvp_PRAKRITICLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_PRAKRITICLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_PRAKRITICLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_PRAKRITICLUB_Serializer
@@ -329,7 +328,7 @@ class Rsvp_ROBOTICSCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_ROBOTICSCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_ROBOTICSCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_ROBOTICSCLUB_Serializer
@@ -341,7 +340,7 @@ class Rsvp_SAILCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_SAILCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_SAILCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_SAILCLUB_Serializer
@@ -353,7 +352,7 @@ class Rsvp_SWC_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_SWC.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_SWC_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_SWC_Serializer
@@ -365,7 +364,7 @@ class Rsvp_Task_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_Task.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_Task_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_Task_Serializer
@@ -377,7 +376,7 @@ class Rsvp_TechnicheCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_TechnicheCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_TechnicheCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_TechnicheCLUB_Serializer
@@ -389,7 +388,7 @@ class Rsvp_UGCLUB_List_API(generics.ListAPIView):
     permission_class = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Rsvp_UGCLUB.objects.all()
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ('yes', 'maybe', 'no','event')
+    search_fields = ('yes__name', 'maybe__name', 'no__name','event__title')
 
 class Rsvp_UGCLUB_Detail_API(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = Rsvp_UGCLUB_Serializer
